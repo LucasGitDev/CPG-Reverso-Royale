@@ -38,6 +38,31 @@ public class PlayerMovement2 : NetworkBehaviour
 
     private bool facingRight = true;
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            Debug.Log($"Jogador {OwnerClientId} foi atingido por um projétil.");
+
+            // Verifica se o projétil é do jogador atual
+            if (other.GetComponent<NetworkObject>().OwnerClientId == OwnerClientId)
+            {
+                Debug.Log("Projétil é do jogador atual. Ignorando.");
+                return;
+            }
+
+            // Dano, animação, etc
+            Damage(10);
+
+            // Destroi o projétil no servidor
+            NetworkObject projectileNetObj = other.GetComponent<NetworkObject>();
+            if (projectileNetObj != null)
+            {
+                projectileNetObj.Despawn(true);
+            }
+        }
+    }
+
     private void Start()
     {
         if (_animator == null)
@@ -96,11 +121,6 @@ public class PlayerMovement2 : NetworkBehaviour
             return;
         Movement();
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Atack();
-        }
-
         _animator.SetBool("isPlayerA", IsOwner);
 
         RotateAtackHighlight();
@@ -155,13 +175,6 @@ public class PlayerMovement2 : NetworkBehaviour
         Vector3 theScale = _playerTransform.localScale;
         theScale.x *= -1;
         _playerTransform.localScale = theScale;
-    }
-
-    private void Atack()
-    {
-        _animator.SetTrigger("Atack");
-
-        HasEnemyInSight();
     }
 
     private void AtackHighligthSetup()
