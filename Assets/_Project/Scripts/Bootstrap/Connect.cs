@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
 public class NetworkPlayerSpawner : NetworkBehaviour
@@ -28,6 +29,18 @@ public class NetworkPlayerSpawner : NetworkBehaviour
         }
         else if (gameMode == 2)
         {
+            string hostAddress = PlayerPrefs.GetString("HostAddress", "");
+            if (!string.IsNullOrEmpty(hostAddress))
+            {
+                NetworkManager
+                    .Singleton.GetComponent<UnityTransport>()
+                    .SetConnectionData(hostAddress, 7777);
+                Debug.Log("Host address: " + hostAddress);
+            }
+            else
+            {
+                Debug.LogError("Host address is empty. Please set a valid host address.");
+            }
             NetworkManager.Singleton.StartClient();
             Debug.Log("Game is set as client");
         }
