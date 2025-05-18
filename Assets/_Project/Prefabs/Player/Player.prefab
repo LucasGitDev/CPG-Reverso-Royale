@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3979554018861201910}
   - component: {fileID: 4062644322457344976}
   - component: {fileID: 9066703793780604318}
-  - component: {fileID: 7404135452011749221}
   - component: {fileID: 8821816467706264041}
+  - component: {fileID: 7404135452011749221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -176,14 +176,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3062923122615140469, guid: 98372108fb54f4e20a7d06b0fd69ec5f, type: 3}
   projectileSpeed: 10
   projectileSpawnPoint: {fileID: 4683446360135056598}
---- !u!222 &7404135452011749221
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4989865374264358517}
-  m_CullTransparentMesh: 1
 --- !u!114 &8821816467706264041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fd317d698b845089510e7ede37cf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &7404135452011749221
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989865374264358517}
+  m_CullTransparentMesh: 1
