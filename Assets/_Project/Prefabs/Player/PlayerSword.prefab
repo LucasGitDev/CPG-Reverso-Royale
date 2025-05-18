@@ -179,8 +179,9 @@ GameObject:
   - component: {fileID: -1527026805744552531}
   - component: {fileID: 6183703018302068423}
   - component: {fileID: 949115659669844981}
-  - component: {fileID: 5784117035941832491}
   - component: {fileID: 6308490592351653060}
+  - component: {fileID: 3250548172525766483}
+  - component: {fileID: 6721107386637450638}
   m_Layer: 0
   m_Name: PlayerSword
   m_TagString: Untagged
@@ -198,7 +199,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07914981, y: 0.33918828, z: 0.041363876}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 76808740733570653}
@@ -402,21 +403,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &5784117035941832491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6374492066006691127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fbb60984eb24865a4be40306fe4d41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 720
-  positionRange: 3
 --- !u!114 &6308490592351653060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,3 +418,43 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3062923122615140469, guid: 98372108fb54f4e20a7d06b0fd69ec5f, type: 3}
   projectileSpeed: 10
   projectileSpawnPoint: {fileID: 3973694429349042429}
+--- !u!114 &3250548172525766483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374492066006691127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d3bc3c7928743bd89695916ce89746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 3973694429349042429}
+  _playerSpriteRenderer: {fileID: 5089458972995983438}
+  _animator: {fileID: 9018954223938618302}
+  _atackHighlight: {fileID: 1155989697507191188}
+  maxHealth: 100
+  currentHealth: 0
+  isPlayerA: 1
+  moveSpeed: 2
+  maxSpeed: 10
+  atackHighlightIntensity: 2
+  atackHighlightInnerAngle: 0
+  atackHighlightOuterAngle: 50
+  atackHighlightOuterRadius: 3
+--- !u!114 &6721107386637450638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374492066006691127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fbb60984eb24865a4be40306fe4d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 720
+  positionRange: 3

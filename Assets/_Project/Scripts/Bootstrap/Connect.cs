@@ -41,21 +41,21 @@ public class NetworkPlayerSpawner : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         Debug.Log("OnNetworkSpawn - NetworkPlayerSpawner");
-        SpawnPlayerServerRpc();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    void SpawnPlayerServerRpc(ServerRpcParams rpcParams = default)
-    {
-        ulong senderClientId = rpcParams.Receive.SenderClientId;
-        Debug.Log($"SpawnPlayerServerRpc - clientId: {senderClientId}");
-
         int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", -1);
         if (selectedCharacter == -1)
         {
             Debug.Log("No character selected. Please select a character.");
             return;
         }
+        Debug.Log("Selected character: " + selectedCharacter);
+        SpawnPlayerServerRpc(selectedCharacter);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void SpawnPlayerServerRpc(int selectedCharacter, ServerRpcParams rpcParams = default)
+    {
+        ulong senderClientId = rpcParams.Receive.SenderClientId;
+        Debug.Log($"SpawnPlayerServerRpc - clientId: {senderClientId}");
 
         SpawnPlayerOnClients(senderClientId, selectedCharacter);
     }
