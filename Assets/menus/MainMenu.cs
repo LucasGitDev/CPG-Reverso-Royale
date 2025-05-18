@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public void GoToSelectCharacter ()
+    public void SetAsHost()
     {
-        //go to the select character menu
+        PlayerPrefs.SetInt("GameMode", 1);
+        Debug.Log("Game mode set to host");
     }
-    
-    public void GoToOptions ()
+
+    public void SetAsClient()
     {
-        //go to the options menu
-        
+        PlayerPrefs.SetInt("GameMode", 2);
+        Debug.Log("Game mode set to client");
     }
 
     public void QuitGame()
     {
-        
         Application.Quit();
         Debug.Log("Game is quitting");
     }
-   
 }
