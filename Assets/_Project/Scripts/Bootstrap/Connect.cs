@@ -17,5 +17,9 @@ public class Connect : MonoBehaviour
             NetworkManager.Singleton.StartClient();
             Debug.Log("Game is set as client");
         }
+        else
+        {
+            Debug.Log("Game mode not set. Please select a game mode.");
+        }
     }
 }

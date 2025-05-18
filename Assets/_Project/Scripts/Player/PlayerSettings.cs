@@ -9,7 +9,7 @@ public class PlayerSettings : NetworkBehaviour
     private NetworkVariable<FixedString128Bytes> networkPlayerName = new(
         new FixedString128Bytes("Player 0"),
         NetworkVariableReadPermission.Everyone,
-        NetworkVariableWritePermission.Server
+        NetworkVariableWritePermission.Owner
     );
 
     public override void OnNetworkSpawn()

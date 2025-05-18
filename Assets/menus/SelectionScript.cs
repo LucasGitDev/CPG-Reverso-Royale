@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectionScript : MonoBehaviour
 {
-    
-    [SerializeField] private GameObject[] characterCards;
-    
+    [SerializeField]
+    private GameObject[] characterCards;
+
     public void SelectCharacter(int characterIndex)
     {
-        if(characterIndex == -1)
+        if (characterIndex == -1)
         {
             foreach (GameObject card in characterCards)
             {
@@ -17,7 +18,7 @@ public class SelectionScript : MonoBehaviour
             }
             return;
         }
-        
+
         foreach (GameObject card in characterCards)
         {
             card.SetActive(false);
@@ -28,10 +29,11 @@ public class SelectionScript : MonoBehaviour
         {
             characterCards[characterIndex].SetActive(true);
         }
-        
+
         //print the selected character index
         Debug.Log("Selected character index: " + characterIndex);
+        PlayerPrefs.SetInt("SelectedCharacter", characterIndex);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainScene");
     }
-    
-    
 }
