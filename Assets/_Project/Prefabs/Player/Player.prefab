@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3265312821
+  GlobalObjectIdHash: 3817697648
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3062923122615140469, guid: 98372108fb54f4e20a7d06b0fd69ec5f, type: 3}
   projectileSpeed: 10
-  projectileSpawnPoint: {fileID: 0}
+  projectileSpawnPoint: {fileID: 4683446360135056598}
 --- !u!222 &7404135452011749221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -196,4 +196,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fd317d698b845089510e7ede37cf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNameText: {fileID: 0}
