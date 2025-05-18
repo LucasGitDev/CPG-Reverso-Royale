@@ -20,10 +20,16 @@ public class PlayerController : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Quaternion rotation = Quaternion.LookRotation(
-                Vector3.forward,
-                mousePosition - (Vector2)projectileSpawnPoint.position
-            );
+            float offset = 0.5f; // Ajuste o valor do offset conforme necessário
+            // Cria um ponto de origem para o projétil
+            Vector2 projectileOrigin =
+                (Vector2)projectileSpawnPoint.position + offset * Vector2.right;
+            // Calcula a direção do mouse em relação ao ponto de origem
+            Vector2 direction = mousePosition - projectileOrigin;
+            // Normaliza a direção
+            direction.Normalize();
+            // Calcula a rotação necessária para o projétil
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
             ShootProjectileServerRpc(rotation);
         }
     }
@@ -47,6 +53,6 @@ public class PlayerController : NetworkBehaviour
         projectile.GetComponent<NetworkObject>().Spawn();
         projectile
             .GetComponent<Rigidbody2D>()
-            .AddForce(rotation * Vector2.up * projectileSpeed, ForceMode2D.Impulse);
+            .AddForce(rotation * Vector2.right * projectileSpeed, ForceMode2D.Impulse);
     }
 }
